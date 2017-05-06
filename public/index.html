@@ -1,0 +1,62 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+<!-- In LA -->
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	
+</head>
+	<body style="background-color:darkred">
+	
+		<div style="color:white" class="container" ng-controller="AppCtrl">
+			<h1>To Do List</h1>
+			
+				<!--<input style="background-color:black" ng-model="test">
+				{{test}} -->
+				
+			<table style="color:white" class="table">
+				<thead>
+				<tr>
+					<th>Title</th>
+					<th>Text</th>
+					<th>Due</th>
+					<th>Status</th>
+					<th>Action</th>
+				</tr>
+				</thead>
+				<tbody>
+				
+				<tr>
+					<td><input class="form-control" ng-model="todo.Title"></td>
+					<td><input class="form-control" ng-model="todo.Text"></td>
+					<td><input class="form-control" ng-model="todo.Due"></td>
+					<td></td>
+					<!--<td><input class="form-control" ng-model="todo.Status"></td>-->
+					
+					<td><button class="btn btn-primary" ng-click="addtodo()">Add Todo</button></td>
+					<td><button class="btn btn-info" ng-click="update()">Update</button> 
+				</tr>
+				
+				<tr ng-repeat="todo in todolist">
+					<td>{{todo.Title}}</td>
+					<td>{{todo.Text}}</td>
+					<td>{{todo.Due}}</td>
+					<td>{{todo.Status}}</td>
+					<td><button class="btn btn-danger" ng-click="remove(todo._id)">Remove</button></td>
+					<td><button class="btn btn-warning" ng-click="edit(todo._id)">Edit</button></td>
+					<td><button class="btn btn-info" ng-click="complete(todo._id)">Completed</button></td>
+				</tr>
+				
+				</tbody>
+			
+			</table>
+		</div>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+		<script src="controllers/controller.js"></script>
+	</body>
+	
+</html>
